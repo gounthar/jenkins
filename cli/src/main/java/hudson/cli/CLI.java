@@ -342,6 +342,7 @@ public class CLI {
         }
 
         class Authenticator extends ClientEndpointConfig.Configurator {
+
             HandshakeResponse hr;
 
             @Override
