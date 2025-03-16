@@ -336,11 +336,13 @@ public class CLI {
         }
     }
 
+    @SuppressFBWarnings(value = "PATH_TRAVERSAL_IN", justification = "User provided value for running the program.")
     private static String readAuthFromFile(String auth) throws IOException {
         Path path = validateAndSanitizePath(auth.substring(1)).toPath();
         return Files.readString(path, Charset.defaultCharset());
     }
 
+    @SuppressFBWarnings(value = "PATH_TRAVERSAL_IN", justification = "User provided value for running the program.")
     private static File getFileFromArguments(List<String> args) {
         return validateAndSanitizePath(args.get(1));
     }
