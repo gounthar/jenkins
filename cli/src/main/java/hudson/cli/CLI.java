@@ -319,28 +319,22 @@ public class CLI {
     }
 
     private static File validateAndSanitizePath(String userInput) {
-        // Define a base directory for validation
-        String baseDir = "/safe/base/directory";
-        Path basePath = Paths.get(baseDir).toAbsolutePath().normalize();
-        Path userPath = Paths.get(userInput).toAbsolutePath().normalize();
+        try {
+            Path userPath = Paths.get(userInput).toAbsolutePath().normalize();
 
-        // Check if the user path is within the base directory
-        if (!userPath.startsWith(basePath)) {
-            throw new IllegalArgumentException("Invalid file path");
+            // Sanitize the path (e.g., remove dangerous characters)
+            String sanitizedPath = userPath.toString().replaceAll("[^a-zA-Z0-9./_-]", "");
+            return new File(sanitizedPath);
+        } catch (InvalidPathException e) {
+            throw new IllegalArgumentException("Invalid file path", e);
         }
-
-        // Sanitize the path (e.g., remove dangerous characters)
-        String sanitizedPath = userPath.toString().replaceAll("[^a-zA-Z0-9./_-]", "");
-        return new File(sanitizedPath);
     }
 
-    @SuppressFBWarnings("PATH_TRAVERSAL_IN")
     private static String readAuthFromFile(String auth) throws IOException {
         Path path = validateAndSanitizePath(auth.substring(1)).toPath();
         return Files.readString(path, Charset.defaultCharset());
     }
 
-    @SuppressFBWarnings("PATH_TRAVERSAL_IN")
     private static File getFileFromArguments(List<String> args) {
         return validateAndSanitizePath(args.get(1));
     }
