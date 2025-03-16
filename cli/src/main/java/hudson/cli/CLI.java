@@ -318,7 +318,6 @@ public class CLI {
         throw new AssertionError();
     }
 
-    @SuppressFBWarnings(value = {"PATH_TRAVERSAL_IN", "URLCONNECTION_SSRF_FD"}, justification = "User provided values for running the program.")
     private static String readAuthFromFile(String auth) throws IOException {
         Path path;
         try {
@@ -329,7 +328,6 @@ public class CLI {
         return Files.readString(path, Charset.defaultCharset());
     }
 
-    @SuppressFBWarnings(value = {"PATH_TRAVERSAL_IN", "URLCONNECTION_SSRF_FD"}, justification = "User provided values for running the program.")
     private static File getFileFromArguments(List<String> args) {
         return new File(args.get(1));
     }
