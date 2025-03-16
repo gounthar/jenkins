@@ -42,7 +42,6 @@ THE SOFTWARE.
     <xmlunit.version>2.10.0</xmlunit.version>
     <!-- Minimum Remoting version, which is tested for API compatibility, duplicated so that renovate only updates the latest remoting version property -->
     <remoting.minimum.supported.version>3107.v665000b_51092</remoting.minimum.supported.version>
-    <stapler.version>1948.v0f99403fe86a_</stapler.version>
     <!-- Filled in by jacoco-maven-plugin -->
     <jacocoSurefireArgs />
   </properties>
@@ -213,7 +212,7 @@ THE SOFTWARE.
     <dependency>
       <groupId>io.jenkins.stapler</groupId>
       <artifactId>jenkins-stapler-support</artifactId>
-      <version>${stapler.version}</version>
+      <version>1.1</version>
     </dependency>
     <dependency>
       <!-- needed by Jelly -->
