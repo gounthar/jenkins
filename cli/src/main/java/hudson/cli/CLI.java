@@ -322,6 +322,12 @@ public class CLI {
         try {
             Path userPath = Paths.get(userInput).toAbsolutePath().normalize();
 
+            // Ensure the path is within a safe directory
+            Path baseDir = Paths.get(System.getProperty("user.dir")).toAbsolutePath().normalize();
+            if (!userPath.startsWith(baseDir)) {
+                throw new IllegalArgumentException("Invalid file path: Path traversal attempt detected");
+            }
+
             // Sanitize the path (e.g., remove dangerous characters)
             String sanitizedPath = userPath.toString().replaceAll("[^a-zA-Z0-9./_-]", "");
             return new File(sanitizedPath);
