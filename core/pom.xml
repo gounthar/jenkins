@@ -213,6 +213,7 @@ THE SOFTWARE.
     <dependency>
       <groupId>io.jenkins.stapler</groupId>
       <artifactId>jenkins-stapler-support</artifactId>
+      <version>${stapler.version}</version>
     </dependency>
     <dependency>
       <!-- needed by Jelly -->
