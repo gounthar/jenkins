@@ -334,11 +334,13 @@ public class CLI {
         return new File(sanitizedPath);
     }
 
+    @SuppressFBWarnings("PATH_TRAVERSAL_IN")
     private static String readAuthFromFile(String auth) throws IOException {
         Path path = validateAndSanitizePath(auth.substring(1)).toPath();
         return Files.readString(path, Charset.defaultCharset());
     }
 
+    @SuppressFBWarnings("PATH_TRAVERSAL_IN")
     private static File getFileFromArguments(List<String> args) {
         return validateAndSanitizePath(args.get(1));
     }
