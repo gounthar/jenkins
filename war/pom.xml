@@ -151,6 +151,8 @@ THE SOFTWARE.
                     <exclude>com.infradna.tool:bridge-method-annotation</exclude>
                     <exclude>org.jenkins-ci:annotation-indexer</exclude>
                     <exclude>org.jenkins-ci:commons-jelly</exclude>
+                    <exclude>org.jenkins-ci:commons-jelly-tags-fmt</exclude>
+                    <exclude>org.jenkins-ci:commons-jelly-tags-xml</exclude>
                     <exclude>org.jenkins-ci:crypto-util</exclude>
                     <exclude>org.jenkins-ci.main:cli</exclude>
                     <exclude>org.jenkins-ci.main:jenkins-core</exclude>
@@ -645,7 +647,7 @@ THE SOFTWARE.
       <plugin>
         <groupId>org.eclipse.jetty.ee9</groupId>
         <artifactId>jetty-ee9-maven-plugin</artifactId>
-        <version>12.0.16</version>
+        <version>12.0.17</version>
         <configuration>
           <!--
             Reload webapp when you hit ENTER. (See JETTY-282 for more)
