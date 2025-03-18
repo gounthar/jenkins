@@ -317,6 +317,20 @@ THE SOFTWARE.
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci</groupId>
+      <artifactId>commons-jelly-tags-xml</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>jaxen</groupId>
+          <artifactId>jaxen</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci</groupId>
       <artifactId>commons-jexl</artifactId>
     </dependency>
     <dependency>
